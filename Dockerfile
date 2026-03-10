@@ -3,7 +3,7 @@
 #############################
 # Stage 1: Lambda runtime image
 #############################
-FROM public.ecr.aws/lambda/python:3.12 AS lambda
+FROM --platform=linux/amd64 public.ecr.aws/lambda/python:3.12 AS lambda
 
 WORKDIR /var/task
 

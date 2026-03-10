@@ -35,7 +35,8 @@ run: install
 
 
 docker-build:
-	docker build -t $(ECR_REPO):$(IMAGE_TAG) -f Dockerfile --target lambda .
+	docker build --platform linux/amd64 --provenance=false \
+	  -t $(ECR_REPO):$(IMAGE_TAG) -f Dockerfile --target lambda .
 
 docker-run:
 	docker build -t $(LAMBDA_NAME)-dev:local -f Dockerfile --target dev . && \
